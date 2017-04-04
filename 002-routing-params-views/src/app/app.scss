@@ -5,10 +5,11 @@
 // bower:scss
 // endbower
 
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,400i,900);
 
-html {
-  font-family: 'Roboto Slab', serif;
+body {
+  font-family: 'Lato', sans-serif !important;
+  color: #3e3e3e;
 }
 
 .site{

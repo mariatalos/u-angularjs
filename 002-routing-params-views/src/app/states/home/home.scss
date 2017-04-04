@@ -1,5 +1,44 @@
-.home-view{
+/*----- Generals -----*/
+
+.main-btn{
+	border-radius: 0px;
+	color: white;
+	background-color: #d24f2e;
+	font-size: 0.9rem;
+	letter-spacing: 0.1rem;
+	font-weight: 100;
+	padding: 10px 15px;
+	border: none;
+
+	&:hover {
+		background-color: #d26100;
+
+	}
+}
+
+
+
+
+
+a{
+	color: #797979;
+}
+
+.home-view {
 	.jumbotron{
 		text-align: center;
 	}
 }
+
+button {
+	cursor:pointer;
+}
+
+footer{
+	margin-top: 100px;
+}
+
+
+
+
+
