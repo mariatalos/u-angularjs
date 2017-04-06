@@ -15,19 +15,21 @@
     	currentUser: currentUser
     };
 
-    function registerUser(newUser){
-  		if(!searchUser(newUser.email)){
-  			users.push(vm.newUser);
-  			localStorage.setItem('userList', JSON.stringify(users));
-  			return true;
-  		}else{
-  			return false;
-  		}
+    function registerUser(newUser) {
+      if (!searchUser(newUser.email)) {
+          vm.users.push(newUser);
+          localStorage.setItem('userList', JSON.stringify(vm.users));
+          return true;
+      } else {
+          return false;
+      }
     };
 
     function searchUser(key){
     	var found = false;
+
     	vm.users.forEach(function(user) {
+    		console.log(user);
     		if(user.email === key){
     			found = true;
     		}
@@ -46,6 +48,9 @@
     }
 
     function logIn(user) {
+		console.log(user);
+		console.log(vm.users);
+
     	if(validLogin(user)){
   			localStorage.setItem('currentUser', user.email);
   			return true;

@@ -14,7 +14,9 @@
     vm.signInUser = signInUser;
     
     function signInUser() {
-      if(Auth.registerUser(vm.newUse)){
+      console.log('entró a signinuser fuction', vm.newUser);
+      if(Auth.registerUser(vm.newUser)){
+
         vm.alert = 'Succesfuly Registered, redirecting...';
       }else{
         vm.alert = 'Email already been used, redirecting...';

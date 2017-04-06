@@ -8,6 +8,13 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
+        .state('dashboard', {
+            url: '/dashboard',
+            templateUrl: 'app/states/dashboard/dashboard.html',
+            controller: 'DashboardController',
+            controllerAs: 'dashCtrl'
+        })
+
       .state('home', {
         url: '/',
         templateUrl: 'app/states/home/home.html',
