@@ -8,11 +8,21 @@
   /** @ngInject */
   function routerAuth($stateProvider) {
     $stateProvider
-      .state('auth', {
-        abstract: true,
-        template: '<section class="general-section" ui-view></section>',
-        url: '/auth',
-      })
+        .state('auth', {
+          abstract: true,
+          url: '/auth',
+          views: {
+            "site@": {
+              template: '<section class="general-section" ui-view></section>'
+            }
+          },
+          onEnter: function(Auth, $state){
+            if(Auth.currentUser()){
+              $state.go('mainDashboard');
+            }
+          }
+        })
+
       .state('login', {
       	parent: 'auth',
       	url: '/login',
@@ -23,6 +33,7 @@
         controller: 'AuthLoginController',
         controllerAs: 'auLoginCtrl'
       })
+
        .state('signin', {
       	parent: 'auth',
       	url: '/signin',

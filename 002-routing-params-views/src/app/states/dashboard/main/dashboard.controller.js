@@ -13,6 +13,17 @@
         vm.userName = $stateParams.username;
         vm.userPw = $stateParams.pass;
 
+        vm.goToDetail = goToDetailMethod;
+        vm.goToConfig = goToConfigMethod;
+
+        function goToDetailMethod() {
+            $state.go('detail');
+        }
+
+        function goToConfigMethod() {
+            $state.go('detail');
+        }
+
         if (vm.userName === null && vm.userPw === null){
             $state.go('home');
             $location.url($location.path());
