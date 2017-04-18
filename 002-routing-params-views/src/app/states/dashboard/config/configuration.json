@@ -1,0 +1,21 @@
+[
+  {
+    "config" : "Run gulp serve for each folder of each practice",
+    "Country" : "Germany"
+  },
+
+  {
+  "config" : "Check dependences: NodeJS v6 and Bower",
+  "Country" : "Sweden"
+  },
+
+  {
+  "config" : "npm install",
+  "Country" : "Mexico"
+  },
+
+  {
+  "config" : "bower install",
+  "Country" : "Austria"
+  }
+]

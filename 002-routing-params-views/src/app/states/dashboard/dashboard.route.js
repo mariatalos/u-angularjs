@@ -37,7 +37,7 @@
 
             .state('main', {
                 parent: 'dashboard',
-                url: '/main-dashboard',
+                url: '/main',
                 params: {
                     currentUser: {}
                 },
@@ -53,9 +53,20 @@
             .state('config', {
                 parent: 'dashboard',
                 url: '/config',
-                templateUrl: 'app/states/auth/login/login.html',
-                controller: 'DashboardController',
-                controllerAs: 'dashCtrl'
+
+                views: {
+                    "main": {
+                        templateUrl: 'app/states/dashboard/config/config.html',
+                        controller: 'ConfigController',
+                        controllerAs: 'configCtrl'
+                    }
+                },
+
+                resolve:{
+                    promiseObj:  function($http){
+                        return $http({method: 'GET', url: 'app/states/dashboard/config/configuration.json'});
+                    },
+                }
             })
             
             .state('detail', {
@@ -64,9 +75,13 @@
                 params: {
                     currentUser: {}
                 },
-                templateUrl: 'app/states/auth/signin/signin.html',
-                controller: 'DashboardController',
-                controllerAs: 'dashCtrl'
+                views: {
+                    "main": {
+                        templateUrl: 'app/states/dashboard/detail/detail.html',
+                        controller: 'DashboardController',
+                        controllerAs: 'dashCtrl'
+                    }
+                }
             })
 
         ;

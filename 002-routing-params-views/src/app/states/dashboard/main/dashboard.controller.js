@@ -6,15 +6,16 @@
         .controller('DashboardController', DashboardController);
 
     /** @ngInject */
-    function DashboardController($state, $location, $stateParams, $log, SITE_NAME) {
+    function DashboardController($state, $location, SITE_NAME, Auth) {
         var vm = this;
         vm.mainTitle = SITE_NAME;
 
-        vm.userName = $stateParams.username;
-        vm.userPw = $stateParams.pass;
+        vm.userName = Auth.currentUser();
 
         vm.goToDetail = goToDetailMethod;
         vm.goToConfig = goToConfigMethod;
+
+
 
         function goToDetailMethod() {
             $state.go('detail');

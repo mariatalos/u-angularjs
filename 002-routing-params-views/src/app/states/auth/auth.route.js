@@ -15,11 +15,6 @@
             "site@": {
               template: '<section class="general-section" ui-view></section>'
             }
-          },
-          onEnter: function(Auth, $state){
-            if(Auth.currentUser()){
-              $state.go('mainDashboard');
-            }
           }
         })
 
