@@ -11,8 +11,8 @@
       .state('home', {
         url: '/',
         templateUrl: 'app/states/home/home.html',
-        controller: 'WeatherController',
-        controllerAs: 'weatherCtrl'
+        controller: 'HomeController',
+        controllerAs: 'homeCtrl'
       });
 
     $urlRouterProvider.otherwise('/');

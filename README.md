@@ -1,4 +1,4 @@
-# Agular JS
+# Angular JS
 
 The purpose of this practices it's to guide the student through angular best practices and how they work in the real life.  
 
@@ -13,8 +13,8 @@ Content of the practice materials, take your time to develop the content, if you
 
 * 001 - [Project File Structure][4]
 * 002 - [States, views and params][6]
-* 003 - Communitcating with Servers
-* 004 - Directives
+* 003 - [Servers and Maps][7]
+* 004 - [Directives][8]
 ...
 
 ### Install
@@ -36,3 +36,5 @@ Set up your environment, in each example folder:
  [4]: https://github.com/talosdigital/u-angularjs/tree/master/001-project-file-structure
  [5]: https://github.com/Swiip/generator-gulp-angular
  [6]: https://github.com/talosdigital/u-angularjs/tree/master/002-routing-params-views
+ [7]: https://github.com/talosdigital/u-angularjs/tree/master/003-servers-and-maps
+ [8]: https://github.com/talosdigital/u-angularjs/tree/master/004-directives

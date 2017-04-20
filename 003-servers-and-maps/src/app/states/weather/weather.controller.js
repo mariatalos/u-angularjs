@@ -36,7 +36,7 @@
             //Remember Services
             $http({
                 method: 'GET',
-                url: 'http://api.openweathermap.org/data/2.5/weather?APPID='+vm.apiKey+'&q=London'
+                url: 'http://api.openweathermap.org/data/2.5/home?APPID='+vm.apiKey+'&q=London'
             }).then(function successCallback(response) {
                 alert(response.data.name); //Not a good practice 
             }, function errorCallback(response) {
