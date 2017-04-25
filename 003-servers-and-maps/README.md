@@ -8,6 +8,11 @@ The Purpose of this example it's to understand how to interact with servers in a
 * `$mdDialog`
 
 ### To Do
+
+You have to create a page that shows a map where you can see information about weather, UV or pollution, of the location selected when you click on some point of the map.
+
+### Goals
+
 Perform the following in the current example:
 * Capture the map click [event][4], and get the [lat,lng].
 * Bring the [Weather][5], [UV][8] or [Pollution][9] of the location selected.
