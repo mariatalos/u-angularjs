@@ -6,15 +6,17 @@
     .controller('WeatherController', WeatherController);
 
   /** @ngInject */
-  function WeatherController($http, $scope, weatherInfo) {
-    var vm = this;
+  function WeatherController($http, $scope, $mdDialog) {
+        var vm = this;
 
-    //Talos API Key
+        //Talos API Key
+        vm.apiKey = '534eccb946ce639dbb41f82b8be15dcc';
+        vm.kind = '0';
 
-    vm.kind = '0';
+        var alert;
+        $scope.modalInfo = modalInfo;
 
-    //Extend is a good practice :)
-    angular.extend($scope, {
+        angular.extend($scope, {
         center: {
             lat: 38.8225909761771,
             lng: -96.5478515625,
@@ -40,30 +42,66 @@
         }
     });
 
-    $scope.$on('leafletDirectiveMap.map.click', function(event, args){
+        $scope.$on('leafletDirectiveMap.map.click', function(event, args){
+
+            vm.lat = args.leafletEvent.latlng.lat;
+            vm.long = args.leafletEvent.latlng.lng;
+
+            $scope.markers.onClickMarker.lat=vm.lat;
+            $scope.markers.onClickMarker.lng=vm.long;
+
+            console.log(vm.lat, vm.long);
+
+            if(vm.kind == '0'){
+
+                $http({
+                    method: 'GET',
+                    url: 'http://api.openweathermap.org/data/2.5/weather?lat='+vm.lat+'&lon='+vm.long+'&APPID='+vm.apiKey
+                }).then(function successCallback(response) {
+
+                    vm.city = response.data.name;
+                    vm.weather= response.data.weather[0].main;
+
+                    console.log(response.data);
+                    console.log(vm.city, vm.weather);
 
 
-        vm.lat = args.leafletEvent.latlng.lat;
-        vm.long = args.leafletEvent.latlng.lng;
+                    modalInfo(vm.city, vm.weather);
 
-        $scope.markers.onClickMarker.lat=vm.lat;
-        $scope.markers.onClickMarker.lng=vm.long;
+                }, function errorCallback(response) {
+                    alert('Error');
+                });
 
-        console.log(vm.lat, vm.long);
+                //$scope.data = weatherInfo.weather(vm.lat, vm.long);
 
-        if(vm.kind == '0'){
 
-            $scope.data = weatherInfo.weather(vm.lat, vm.long);
-            console.log($scope.data);
 
-        }else if(vm.kind == '1'){
-            //http://api.openweathermap.org/v3/uvi/{lat},{lon}./current.json?appid={your-api-key}
-        }else if(vm.kind == '2'){
-            //http://api.openweathermap.org/pollution/v1/co/{location}/current.json?appid={api_key}
+
+            }else if(vm.kind == '1'){
+                console.log("uvi");
+                //http://api.openweathermap.org/v3/uvi/{lat},{lon}./current.json?appid={your-api-key}
+            }else if(vm.kind == '2'){
+                //http://api.openweathermap.org/pollution/v1/co/{location}/current.json?appid={api_key}
+            }
+
+        });
+
+        function modalInfo(city, weather) {
+
+            var parentEl = angular.element(document.body);
+
+            alert = $mdDialog.alert({
+              title: 'The weather in '+ city +" is:",
+              textContent: weather,
+              ok: 'Close'
+            });
+
+            $mdDialog
+              .show( alert )
+              .finally(function() {
+                  alert = undefined;
+              });
         }
-
-
-    });
 
   }
 
