@@ -4,10 +4,10 @@
 	    <h1 class="display-3">Weather App!</h1>
 	    <p class="lead">Let's click the map and see how it brings the weather in the spesific point that you click.</p>
 
-		<md-radio-group>
-	      <md-radio-button ng-model="weatherCtrl.kind" value="0" class="md-primary">Weather</md-radio-button>
-	      <md-radio-button ng-model="weatherCtrl.kind" value="1" class="md-primary">UV</md-radio-button>
-	      <md-radio-button ng-model="weatherCtrl.kind" value="2" class="md-primary">Pollution</md-radio-button>
+		<md-radio-group ng-model="weatherCtrl.kind">
+	      <md-radio-button ng-value="0" value="0" class="md-primary">Weather</md-radio-button>
+	      <md-radio-button ng-value="1" value="1" class="md-primary">UV</md-radio-button>
+	      <md-radio-button ng-value="2" value="2" class="md-primary">Pollution</md-radio-button>
 	    </md-radio-group>
 
 	    <!-- leaflet directive to include map -->

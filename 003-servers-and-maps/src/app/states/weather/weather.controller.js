@@ -6,21 +6,21 @@
     .controller('WeatherController', WeatherController);
 
   /** @ngInject */
-  function WeatherController($http, $scope, $mdDialog) {
+  function WeatherController($http, $scope, $mdDialog, WeatherService) {
         var vm = this;
 
         //Talos API Key
         vm.apiKey = '534eccb946ce639dbb41f82b8be15dcc';
-        vm.kind = '0';
+        vm.kind = 0;
 
         var alert;
         $scope.modalInfo = modalInfo;
 
         angular.extend($scope, {
         center: {
-            lat: 38.8225909761771,
-            lng: -96.5478515625,
-            zoom: 4
+            lng: -74.1796875,
+            lat: 4.58737,
+            zoom: 6
         },
         defaults: {
             scrollWheelZoom: false
@@ -33,9 +33,8 @@
         },
         markers: {
             onClickMarker: {
-                lat: 40.51379915504413,
-                lng: -99.31640625,
-                message: "I want to travel here!",
+                lng: -74.1796875,
+                lat: 4.58737,
                 focus: true,
                 draggable: false
             }
@@ -44,56 +43,59 @@
 
         $scope.$on('leafletDirectiveMap.map.click', function(event, args){
 
-            vm.lat = args.leafletEvent.latlng.lat;
-            vm.long = args.leafletEvent.latlng.lng;
+            vm.lat=args.leafletEvent.latlng.lat;
+            vm.long=args.leafletEvent.latlng.lng;
 
             $scope.markers.onClickMarker.lat=vm.lat;
             $scope.markers.onClickMarker.lng=vm.long;
 
-            console.log(vm.lat, vm.long);
+            vm.location=String(Math.round(vm.lat)+","+Math.round(vm.long));
 
-            if(vm.kind == '0'){
 
-                $http({
-                    method: 'GET',
-                    url: 'http://api.openweathermap.org/data/2.5/weather?lat='+vm.lat+'&lon='+vm.long+'&APPID='+vm.apiKey
-                }).then(function successCallback(response) {
+            if(vm.kind == '0'){ // Weather info
+
+                WeatherService.getWeather(vm.lat, vm.long).then(function (response) {
 
                     vm.city = response.data.name;
-                    vm.weather= response.data.weather[0].main;
+                    vm.temperature = Math.round(response.data.main.temp)/10;
 
-                    console.log(response.data);
-                    console.log(vm.city, vm.weather);
+                    vm.weather= response.data.weather[0].main+' / '+vm.temperature+"°C";
+                    vm.message = 'The weather in '+vm.city+' is:';
 
+                    console.log(response.data.main.temp);
 
-                    modalInfo(vm.city, vm.weather);
-
-                }, function errorCallback(response) {
-                    alert('Error');
+                    modalInfo(vm.message, vm.weather);
                 });
 
-                //$scope.data = weatherInfo.weather(vm.lat, vm.long);
+            }else if(vm.kind == '1'){ // UVI info
 
+                WeatherService.getUVI(vm.location).then(function (response) {
+                    vm.uvi= response.data.data;
+                    vm.message = "The Ultraviolet Index in this Zone is:";
 
+                    modalInfo(vm.message, vm.uvi);
+                });
 
-
-            }else if(vm.kind == '1'){
-                console.log("uvi");
-                //http://api.openweathermap.org/v3/uvi/{lat},{lon}./current.json?appid={your-api-key}
             }else if(vm.kind == '2'){
-                //http://api.openweathermap.org/pollution/v1/co/{location}/current.json?appid={api_key}
+
+                WeatherService.getPollution(vm.location).then(function (response) {
+                    vm.uvi= response.data.data[0].value;
+                    vm.message = "The Pollution Data (CO2) in this Zone is:";
+                    console.log(response);
+                    modalInfo(vm.message, vm.uvi);
+                });
+
             }
 
         });
 
-        function modalInfo(city, weather) {
-
-            var parentEl = angular.element(document.body);
+        function modalInfo(message, data) {
 
             alert = $mdDialog.alert({
-              title: 'The weather in '+ city +" is:",
-              textContent: weather,
-              ok: 'Close'
+              title: message,
+              textContent: data,
+              ok: 'Close',
+              clickOutsideToClose: true
             });
 
             $mdDialog
@@ -102,6 +104,8 @@
                   alert = undefined;
               });
         }
+
+
 
   }
 
