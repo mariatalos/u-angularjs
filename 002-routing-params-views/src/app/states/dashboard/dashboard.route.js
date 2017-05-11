@@ -65,7 +65,7 @@
                 resolve:{
                     promiseObj:  function($http){
                         return $http({method: 'GET', url: 'app/states/dashboard/config/configuration.json'});
-                    },
+                    }
                 }
             })
             

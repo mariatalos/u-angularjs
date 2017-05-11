@@ -15,8 +15,6 @@
         vm.goToDetail = goToDetailMethod;
         vm.goToConfig = goToConfigMethod;
 
-
-
         function goToDetailMethod() {
             $state.go('detail');
         }

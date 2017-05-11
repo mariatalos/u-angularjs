@@ -6,14 +6,13 @@
             <h3 class="">Talos University</h3>
         </div>
 
-
         <div class="dropdown options">
             <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
                 {{navCtrl.user.name}}
                 <span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li><a href="#" ui-sref="config">Configuration</a></li>
-                <li><a href="#" ui-sref="home">Log out</a></li>
+                <li ng-click="navCtrl.logOut()">Log out</li>
             </ul>
         </div>
     </div>

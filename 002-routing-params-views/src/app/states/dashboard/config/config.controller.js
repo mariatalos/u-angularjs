@@ -19,12 +19,8 @@
         vm.userName = Auth.currentUser();
 
         angular.forEach(vm.configdata, function (value, key) {
-
-            console.log(value);
-
+            //console.log(value);
         });
-
-
 
         if (vm.userName === null && vm.userPw === null){
             $state.go('home');

@@ -12,7 +12,8 @@
     vm.factory = {
     	registerUser: registerUser,
     	logIn:logIn,
-    	currentUser: currentUser
+    	currentUser: currentUser,
+		logOut: logOut
     };
 
     function registerUser(newUser) {
@@ -29,7 +30,6 @@
     	var found = false;
 
     	vm.users.forEach(function(user) {
-    		console.log(user);
     		if(user.email === key){
     			found = true;
     		}
@@ -48,8 +48,6 @@
     }
 
     function logIn(user) {
-		console.log(user);
-		console.log(vm.users);
 
     	if(validLogin(user)){
   			localStorage.setItem('currentUser', user.email);
@@ -69,8 +67,8 @@
     	return current;
     }
 
-    function logOut(user){
-    	//...
+    function logOut(){
+		localStorage.setItem('currentUser', null);
     }
 
     return vm.factory;

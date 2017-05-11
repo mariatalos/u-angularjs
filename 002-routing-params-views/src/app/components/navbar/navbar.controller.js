@@ -9,9 +9,10 @@
     function NavbarController($state, Auth, $timeout) {
         var vm = this;
         vm.user = Auth.currentUser();
-        vm.logout = logOut;
+        vm.logOut = logOut;
 
         function logOut() {
+            $state.go('login');
             Auth.logOut();
         }
     }
