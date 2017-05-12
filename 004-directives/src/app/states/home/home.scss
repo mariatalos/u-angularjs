@@ -1,5 +1,16 @@
+
 .home-view{
 	flex:1;
+
+	h1 {
+		color: #1d1e1f;
+		text-transform: uppercase;
+		letter-spacing: 10px;
+		text-align: center;
+		font-weight: 300;
+		margin: 10% 0
+	}
+
 	.item {
 		margin: 18px 0;
 		label {
@@ -9,5 +20,9 @@
 	}
 	.active {
 		background-color: rgba(158,158,158,0.2);
+	}
+
+	.md-tab{
+		color: white
 	}
 }

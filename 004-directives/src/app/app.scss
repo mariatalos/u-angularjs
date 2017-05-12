@@ -4,13 +4,14 @@
  */
 // bower:scss
 // endbower
-
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,400i,900');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://material.google.com/style/color.html#color-color-palette');
 
 body {
   font-family: 'Lato', sans-serif;
+  background-image: url("../assets/images/home4.jpg");
+  background-size: cover;
 }
 
 .site{
@@ -30,6 +31,10 @@ body {
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
+}
+
+footer {
+  color: white
 }
 
 /**
