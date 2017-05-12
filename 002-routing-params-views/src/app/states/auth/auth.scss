@@ -3,14 +3,14 @@
 
 
 .form-control, input {
-	border-radius: 0px;
+	border-radius: 0;
 
 	&:focus{
 		border-color: #f55e38;
 	}
 }
 
-.access-form{
+.access-form {
 	width: 400px;
 	margin: 0 auto;
 	margin-top: 100px;

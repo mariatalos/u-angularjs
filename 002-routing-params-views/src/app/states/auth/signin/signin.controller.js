@@ -14,7 +14,6 @@
     vm.signInUser = signInUser;
     
     function signInUser() {
-      console.log('entró a signinuser fuction', vm.newUser);
       if(Auth.registerUser(vm.newUser)){
 
         vm.alert = 'Succesfuly Registered, redirecting...';

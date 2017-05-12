@@ -12,8 +12,8 @@
         vm.logOut = logOut;
 
         function logOut() {
-            $state.go('login');
             Auth.logOut();
+            $state.go('login');
         }
     }
 })();

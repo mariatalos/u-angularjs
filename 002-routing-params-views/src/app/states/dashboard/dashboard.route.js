@@ -72,9 +72,6 @@
             .state('detail', {
                 parent: 'dashboard',
                 url: '/detail',
-                params: {
-                    currentUser: {}
-                },
                 views: {
                     "main": {
                         templateUrl: 'app/states/dashboard/detail/detail.html',
