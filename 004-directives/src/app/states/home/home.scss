@@ -3,12 +3,27 @@
 	flex:1;
 
 	h1 {
-		color: #1d1e1f;
+		color: #7d7d7d;
 		text-transform: uppercase;
 		letter-spacing: 10px;
 		text-align: center;
 		font-weight: 300;
-		margin: 10% 0
+		margin-top: 7%;
+	}
+
+	h2 {
+		color: #7d7d7d;
+		font-weight: 500;
+		text-align: center;
+		margin-bottom: 30px;
+		font-size: 19px;
+	}
+
+	q {
+		font-weight: 400;
+		font-style: italic;
+		text-align: center;
+		font-size: 16px;
 	}
 
 	.item {
@@ -24,5 +39,53 @@
 
 	.md-tab{
 		color: white
+	}
+
+	.fav-list {
+		float: right!important;
+	}
+
+	.md-input-container {
+		margin: 7px 0;
+	}
+
+	//Card styles:
+
+	.fav-action {
+		position: absolute;
+		right: 0;
+		top: 0;
+		margin: 0;
+		text-align: right;
+
+		button {
+			min-width: 50px;
+			padding: 10px;
+		}
+	}
+
+	.business-card {
+		position: relative;
+	}
+
+	.main-icon {
+		font-size: 90px;
+		text-align: center;
+		color: rgba(0, 0, 0, 0.1);
+		width: 100%;
+		height: 100%;
+		margin-top: 30px;
+		opacity: 0.5
+	}
+
+	.md-subhead {
+		font-weight: 300;
+		text-align: center;
+	}
+	.md-headline {
+		text-transform: uppercase;
+		text-align: center;
+		font-weight: 300;
+		letter-spacing: 7px;
 	}
 }

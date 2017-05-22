@@ -1,17 +1,41 @@
 <section class="home-view">
   <h1 class="md-display-2" layout-margin>Business Card</h1>
+  <h2>Set your custom business card:</h2>
 
   <div layout="row" layout-align="center stretch">
 
     <div class="dashboard-card" flex="50" ng-cloak>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab label="Edit">
-            <md-content class="md-padding">
 
+            <md-content class="md-padding">
               <form name="vm.form">
                 <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding>
+
+                  <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                      <label>Name</label>
+                      <input ng-model="homeCtrl.card.name">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-sm>
+                      <label>Short description of you</label>
+                      <input ng-model="homeCtrl.card.description">
+                    </md-input-container>
+                  </div>
+
+                  <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                      <div md-color-picker ng-model="homeCtrl.card.background" label="Background"></div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-sm>
+                      <div md-color-picker ng-model="homeCtrl.card.textColor" label="Text Color"></div>
+                    </md-input-container>
+                  </div>
+
                   <div class="item">
-                    <label>Icon</label>
+                    <label>Choose your icon</label>
                     <div layout="row">
                       <md-button flex ng-repeat="icon in homeCtrl.icons"  ng-click="homeCtrl.setIcon(icon)" ng-class="{active : homeCtrl.card.icon == icon}">
                         <md-icon md-font-set="md">{{icon}}</md-icon>
@@ -19,24 +43,19 @@
                     </div>
                   </div>
 
-                  <div md-color-picker ng-model="homeCtrl.card.background" label="Background"></div>
-
-                  <div md-color-picker ng-model="homeCtrl.card.textColor" label="Text Color"></div>
                 </md-content>
               </form>
-
-
             </md-content>
           </md-tab>
 
           <md-tab label="See your card">
+            <card></card>
+          </md-tab>
 
+          <md-tab class="fav-list" label="Your favorites">
             <md-content class="md-padding">
-              <md-subheader class="md-no-sticky">Card Directive</md-subheader>
               <md-subheader class="md-no-sticky">Favorite list</md-subheader>
-
             </md-content>
-
           </md-tab>
 
         </md-tabs>

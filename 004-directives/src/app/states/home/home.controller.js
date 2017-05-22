@@ -12,9 +12,15 @@
     vm.icons = ['account_circle', 'home', 'alarm'];
     vm.card = {};
     vm.setIcon = setIcon;
+    vm.setFavorite = setFavorite;
+    vm.card.icon = 'account_circle';
 
     function setIcon(iconClass) {
       vm.card.icon = iconClass;
+    }
+
+    function setFavorite() {
+
     }
   }
 

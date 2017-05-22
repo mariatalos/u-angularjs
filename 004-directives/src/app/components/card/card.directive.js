@@ -8,6 +8,7 @@
   /** @ngInject */
   function cardDirective() {
     return {
+      restrict: 'E',
       templateUrl: 'app/components/card/card.html'
     };
   }
