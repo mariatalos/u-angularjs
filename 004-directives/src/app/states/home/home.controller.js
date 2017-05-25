@@ -6,21 +6,23 @@
     .controller('HomeController', HomeController);
 
   /** @ngInject */
-  function HomeController(RESERVED_BY) {
+  function HomeController() {
     var vm = this;
-    vm.RESERVED_BY = RESERVED_BY;
     vm.icons = ['account_circle', 'home', 'alarm'];
+    vm.favoritesList = [];
+
     vm.card = {};
     vm.setIcon = setIcon;
-    vm.setFavorite = setFavorite;
+    vm.saveFavorite = saveFavorite;
     vm.card.icon = 'account_circle';
+
 
     function setIcon(iconClass) {
       vm.card.icon = iconClass;
     }
 
-    function setFavorite() {
-
+    function saveFavorite(name) {
+      vm.favoritesList.push(name);
     }
   }
 

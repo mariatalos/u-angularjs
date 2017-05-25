@@ -1,18 +1,22 @@
-<md-card style="background-color: {{homeCtrl.card.background}}; color: {{homeCtrl.card.textColor}}" class="business-card" md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+<md-card ng-style="{'background-color': background, 'color' : textColor}"
+         class="business-card"
+         md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}"
+         md-theme-watch>
   <md-card-actions class="fav-action" layout="row" layout-align="end center">
 
-    <md-button ng-click="homeCtrl.setFavorite()">
-      <md-icon style="color: {{homeCtrl.card.textColor}}" md-font-set="md">favorite</md-icon>
+    <md-button aria-label="Favorite" ng-click="favorite({name: name})">
+      <md-icon ng-style="{'color' : textColor}" md-font-set="md">favorite</md-icon>
     </md-button>
   </md-card-actions>
 
-  <div class="md-media-md card-media"><md-icon class="main-icon" md-font-set="md" style="color: {{homeCtrl.card.textColor}}">{{homeCtrl.card.icon}}</md-icon></div>
+  <div class="md-media-md card-media"><md-icon class="main-icon" md-font-set="md" ng-style="{'color' : textColor}">{{icon}}</md-icon></div>
   <md-card-title>
+
     <md-card-title-text>
-      <span class="md-headline">{{homeCtrl.card.name}}</span>
+      <span class="md-headline">{{name}}</span>
       <q>On Internet, nobody knows you're a dog.</q>
 
-      <p class="md-subhead">{{homeCtrl.card.description}}</p>
+      <p class="md-subhead">{{description}}</p>
     </md-card-title-text>
 
   </md-card-title>

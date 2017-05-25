@@ -49,12 +49,28 @@
           </md-tab>
 
           <md-tab label="See your card">
-            <card></card>
+
+            <card name="homeCtrl.card.name"
+                  description="homeCtrl.card.description"
+                  background="homeCtrl.card.background"
+                  text-color="homeCtrl.card.textColor"
+                  favorite="homeCtrl.saveFavorite(name)"
+                  icon="{{homeCtrl.card.icon}}">
+            </card>
+
           </md-tab>
 
           <md-tab class="fav-list" label="Your favorites">
             <md-content class="md-padding">
-              <md-subheader class="md-no-sticky">Favorite list</md-subheader>
+
+              <md-subheader class="md-no-sticky">
+                <md-icon class="fav-icon" md-font-set="md">favorite</md-icon>
+                <h3>Favorites list:</h3>
+              </md-subheader>
+
+              <md-button class="fav-item" flex ng-repeat="item in homeCtrl.favoritesList">
+                {{item}}
+              </md-button>
             </md-content>
           </md-tab>
 
