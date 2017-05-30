@@ -3,6 +3,14 @@
 
   angular
     .module('angularApp')
+      .component('users', {
+        bindings: {
+          users: '<'
+        },
+        controller: 'UserListController',
+        templateUrl: 'app/states/dashboard/user-list/user-list.html',
+        controllerAs: 'userListCtrl'
+      })
     .config(routerDashboard);
 
   /** @ngInject */
@@ -12,9 +20,7 @@
         url: '/user-list',
         views:{
           'main': {
-            controller: 'UserListController',
-            templateUrl: 'app/states/dashboard/user-list/user-list.html',
-            controllerAs: 'userListCtrl'
+            component: 'users'
           }
         },
         resolve: {

@@ -3,19 +3,14 @@
 
   angular
     .module('angularApp')
-    .directive('userCard', userCard);
-
-  function userCard () {
-    return {
-      restrict: 'E',
-      scope: {
-        user: '=',
+    .component('userCard', {
+      bindings: {
+        user: '<',
         onUserSelected: '&',
         onUserLeft: '&'
       },
       templateUrl: 'app/states/dashboard/user-list/user-card.html'
 
-    }
-  }
+    });
 })();
 

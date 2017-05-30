@@ -12,9 +12,7 @@
                 url: '/',
                 views:{
                     'site@':{
-                        templateUrl: 'app/states/home/home.html',
-                        controller: 'HomeController',
-                        controllerAs: 'homeCtrl'
+                        component:'home'
                     }
                 }
             });

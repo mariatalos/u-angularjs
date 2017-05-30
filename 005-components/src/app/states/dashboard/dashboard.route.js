@@ -13,12 +13,10 @@
                 url: '/dashboard',
                 views:{
                     "site@":{
-                        template: '<section class="dashboard" ui-view="main"></section>'
+                        component: 'dashboardSite'
                     },
                     "navbar@":{
-                        templateUrl: 'app/components/navbar/navbar.html',
-                        controller: 'NavbarController',
-                        controllerAs: 'navCtrl'
+                        component: 'navbar'
                     }
                 },
                 onEnter: function(Auth, $state){
@@ -32,9 +30,7 @@
                 url: '/detail',
                 views:{
                     "main":{
-                        templateUrl: 'app/states/dashboard/detail/detail.html',
-                        controller: 'DashboardDetailController',
-                        controllerAs: 'dasDetailCtrl'
+                        component: 'detail'
                     }
                 }
             })
@@ -46,9 +42,7 @@
                 },
                 views:{
                     "main":{
-                        templateUrl: 'app/states/dashboard/main-dashboard/dashboard.html',
-                        controller: 'DashboardController',
-                        controllerAs: 'dasCtrl'
+                        component: 'dashboardMain'
                     }
                 }
             })
@@ -57,9 +51,7 @@
                 url: '/config',
                 views:{
                     "main@":{
-                        templateUrl: 'app/states/dashboard/dashboard/config.html',
-                        controller: 'DashboardConfigController',
-                        controllerAs: 'dasConfigCtrl'
+                        component: 'configuration'
                     }
                 }
             });
