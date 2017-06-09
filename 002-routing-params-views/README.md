@@ -11,15 +11,14 @@ There is information about [Multiple Named Views][1] and [Parent and Abstract St
 
 ### To Do
 Perform the following in the current example:
-* Create an `abstract` state for the `dashboard` module, with the following views:
+* Create an `abstract` state for the `dashboard` module, with the following states:
   * Config, use `resolve` in this state to load a `configuration.json` file.
   * Detail, use `params` to send the detail component wanted.
-  * Main, dashboard view.
+  * Main, dashboard state.
 
 * Create a `navbar` to navigate in the pages:
    * Show the current user name.
    * Show a logout button.
-   * Should be a directive.
    * Use authFactory to get the login data.
    * Use `ui-view` to show, depending of the `dashboard` state.
 
