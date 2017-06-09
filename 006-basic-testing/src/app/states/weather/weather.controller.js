@@ -33,7 +33,7 @@
     $scope.$on('leafletDirectiveMap.map.click', vm.triggerClick);
 
     function triggerClick(event, args){
-
+        
         vm.lat = args.leafletEvent.latlng.lat;
         vm.lon = args.leafletEvent.latlng.lng;
 
