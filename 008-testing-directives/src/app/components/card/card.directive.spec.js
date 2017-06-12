@@ -3,7 +3,7 @@
 
   describe('directive card', function() {
 
-  	var compile, rootScope, timeout, element, template;
+  	var compile, rootScope, element, template;
    
     beforeEach(module('angularApp'));
 
